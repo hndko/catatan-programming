@@ -1,0 +1,9 @@
+upload project laravel ke hosting:
+- login ssh hosting
+- upload berkas ke github
+- hapus folder public_html & clone git project ke hosting
+- symlink folder : ln -s rootfolder/folder_git_laravel/public rootfolder/public_html
+- lalu buka rootfolder/folder_git_laravel/, lalu jalankan perintah : composer install
+- cp .env.example .env
+- edit file .env, setelah itu CRTL + O -> CTRL + x
+- php artisan key:generate

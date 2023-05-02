@@ -1,0 +1,67 @@
+Git Command (local) :
+$ git init
+$ git add <file(s)>
+$ git status
+$ git commit
+$ git config
+$ git branch
+$ git help
+
+------------------------
+Langkah Git :
+- git init : inisialisasi file/berkas
+- git status : cek status git saat ini
+- git add <file> atau git add * atau git add . :untuk menambahkan file/berkas ke stagging area git
+- git config --global user.name "Your Name" 
+- git config --global user.email "Your Email"
+- git config --list : untuk melihat list name & email git local kita
+- git commit -m "Message commit" : untuk commit file/berkas kedalam stagging area git
+- git status
+- git log : untuk cek all history
+- git log -3 : untuk cek 3 history terakhir
+- git log -- <name_file> : untuk cek history berdasarkan nama file
+- git log --all --decorate --oneline --graph : menampilkan commit dalam bentuk graph
+- git checkout -- <nama_file> : untuk mengembalikan file/perubahan sebelumnya berdasarkan file yg dipilih
+- git branch <nama_branch> : untuk membuat branch baru
+- git branch : untuk cek status branch yg aktif saat ini
+- git checkout <nama_branch> : merubah posisi branch
+- git checkout -b <new_branch> : membuat branch baru dan langsung berpindah kebranch yg baru dibuat
+- git merge <nama_branch> : (jika dia fast forward) memindahkan git master ke branch merge pilihan
+- git branch -d <nama_branch> : menghapus branch ketika sudah di merge
+- git branch -D <nama_branch> : menghapus branch meskipun belum di merge
+- git branch --merged : melihat branch mana yang sudah di merge
+- git merge <nama_branch> -m "Message commit" : (jika dia three-way merge) memindahkan git master ke branch merge pilihan tetapi dengan membuat commit baru
+- git commit -a : boleh lakukan git untuk ke stagging area jika perubahannya modified
+- git checkout <7digit_commit> : untuk kembali ke status pada commit yg dipilih
+- git clone <link_repo> : berfungsi untuk cloning data dari repo github ke local kita
+- git remote : untuk cek nama sebuah remote
+- git remote -v : (v = verbose) melihat data lebih detail lagi
+- git remote add <nama_remote <url_remote>
+- git push : untuk push data dari local kita ke github
+- git fetch : mengecek status repo yg sudah di remote
+- git pull : cek merge + get file in remote clone to local
+- git push origin --delete <nama_branch> : untuk menghapus branch di remote
+
+------------------------
+Tips Multi Remote
+- Lakukan Clone ke Local : git clone <url_remote>
+- Buat remote baru : git remote add <nama_remote_target> <url_remote_target>
+- Cek perubahan dari remote target dengan : git fetch <nama_remote_target>
+- Jika ada perubahan di remote target, dan kita ingin melakukan perubahan juga di local + remote kita lakukan : git merge <nama_remote_target>/<nama_branch_target>
+- Cek status graph
+- Jika local sudah terupdate, sekarang lakukan update ke remote kita : git push atau git push <nama_remote_kita> <nama_branch_utama>
+- Cek Status graph
+
+------------------------
+Tips Remote Branch & Pull Request
+- Buat branch baru : git branch <nama_branch>
+- Pindah branch (agar branch master/utama tidak terganggu) : git checkout <nama_branch>
+- Jika sudah melakukan perubahan jalankan perintah : git add (jika ada file baru) atau git commit -am "Initialize Commit" (jika hanya melakukan perubahan)
+- Lakukan push ke github kita : git push <nama_remote_kita> <branch_kedua>
+- {back ke tips multi remote}
+- {remove branch local yang sudah tidak terpakai : git branch -d <nama_branch>}
+- {remove branch remote yang sudah tidak terpakai : git push origin ==delete <nama_branch>}
+
+------------------------
+Note :
+- Membuat alias di bash : alias <nama_alias>="isi perintah"

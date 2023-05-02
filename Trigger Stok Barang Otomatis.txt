@@ -1,0 +1,13 @@
+Trigger Barang Masuk 
+--------------------
+deleteStok | AFTER | DELETE | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok - old.jumlah WHERE tb_barang_awal.kode_barang = old.kode_barang
+insertStok | AFTER | INSERT | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok + NEW.jumlah WHERE tb_barang_awal.kode_barang = NEW.kode_barang
+updateStokKurang | AFTER | UPDATE | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok - old.jumlah WHERE tb_barang_awal.kode_barang = old.kode_barang
+updateStokTambah | AFTER | UPDATE | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok + NEW.jumlah WHERE tb_barang_awal.kode_barang = NEW.kode_barang
+
+Trigger Barang Keluar
+---------------------
+AfterDelete | AFTER | DELETE | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok + old.jumlah WHERE tb_barang_awal.kode_barang = old.kode_barang
+AfterInsert | AFTER | INSERT | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok - NEW.jumlah WHERE tb_barang_awal.kode_barang = NEW.kode_barang
+AfterUpdateKurang | AFTER | UPDATE | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok + old.jumlah WHERE tb_barang_awal.kode_barang = old.kode_barang
+AfterUpdateTambah | AFTER | UPDATE | UPDATE tb_barang_awal SET tb_barang_awal.stok = tb_barang_awal.stok - NEW.jumlah WHERE tb_barang_awal.kode_barang = NEW.kode_barang
